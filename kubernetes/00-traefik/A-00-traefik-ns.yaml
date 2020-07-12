@@ -1,0 +1,6 @@
+kind: "Namespace"
+apiVersion: "v1"
+metadata:
+  name: "a-ingress-traefik"
+  labels:
+    name: "a-ingress-traefik"

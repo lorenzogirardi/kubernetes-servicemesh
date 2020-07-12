@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: apacherr-ingress
+  namespace: b-apacherr
+  annotations:
+spec:
+  rules:
+  - host: pippo.lan
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: apacherr-svc
+          servicePort: 80
+

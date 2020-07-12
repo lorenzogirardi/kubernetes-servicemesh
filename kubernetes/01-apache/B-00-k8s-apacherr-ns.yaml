@@ -1,0 +1,6 @@
+kind: "Namespace"
+apiVersion: "v1"
+metadata:
+  name: "b-apacherr"
+  labels:
+    name: "b-apacherr"

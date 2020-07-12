@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: apacherr-80-config
+  namespace: b-apacherr
+data:
+  proxy-home.conf: |
+    <VirtualHost *:80>
+    ServerAdmin lorenzo@ethzero.it
+    DocumentRoot /usr/local/apache2/htdocs/
+    ServerName pippo.lan
+
+    Timeout 300
+    KeepAlive On
+    MaxKeepAliveRequests 100
+    KeepAliveTimeout 15
+
+    ProxyPreserveHost off
+    UseCanonicalName On
+    ProxyPass /count/  http://app-count-svc.c-app-count.svc.cluster.local:5000/
+    ProxyPass /redis/  http://redis-svc.d-redis.svc.cluster.local:7379/
+    ProxyPassReverse /redis/  http://redis-svc.d-redis.svc.cluster.local:7379/
+    </VirtualHost>
+
